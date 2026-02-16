@@ -1,15 +1,30 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <title>한줄 일기</title>
   <link href='/style.css' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <button id="theme-toggle">Toggle Dark Mode</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+  <div class="app-container">
+    <header>
+      <h1>✏️ 한줄 일기</h1>
+      <button id="theme-toggle" aria-label="테마 변경">🌙</button>
+    </header>
+    
+    <div class="input-area">
+      <input type="text" id="diary-input" placeholder="오늘 하루는 어땠나요?" autocomplete="off">
+      <button id="add-btn">기록</button>
+    </div>
+
+    <ul id="diary-list">
+      <!-- Diary items will appear here -->
+    </ul>
+  </div>
+  <script defer src="/main.js"></script>
 </body>
 </html>

@@ -1,43 +1,152 @@
 :root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-  --btn-bg: #e0e0e0;
-  --btn-text: #000000;
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --card-bg: #ffffff;
+  --border-color: #dee2e6;
+  --accent-color: #4dabf7;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="dark"] {
-  --bg-color: #121212;
-  --text-color: #ffffff;
-  --btn-bg: #333333;
-  --btn-text: #ffffff;
+  --bg-color: #212529;
+  --text-color: #f8f9fa;
+  --card-bg: #343a40;
+  --border-color: #495057;
+  --accent-color: #74c0fc;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: sans-serif;
-  transition: background-color 0.3s, color 0.3s;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
   min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
   margin: 0;
 }
 
 #theme-toggle {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: var(--btn-bg);
-  color: var(--btn-text);
+  background: none;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  line-height: 1;
+}
+
+.input-area {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+#diary-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
   font-size: 1rem;
-  transition: background-color 0.3s, color 0.3s;
+  transition: border-color 0.2s;
 }
 
-#theme-toggle:hover {
-  opacity: 0.8;
+#diary-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
 }
 
+#add-btn {
+  padding: 12px 20px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+#add-btn:hover {
+  opacity: 0.9;
+}
+
+#diary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.diary-item {
+  background-color: var(--card-bg);
+  padding: 1.25rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  animation: slideIn 0.3s ease-out;
+}
+
+.diary-content {
+  flex: 1;
+  padding-right: 10px;
+}
+
+.diary-date {
+  font-size: 0.85rem;
+  color: #868e96;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.diary-text {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  padding: 0;
+  margin-left: 5px;
+  line-height: 1;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
